@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html xml:lang="en" lang="en">
+<head>
+  <title>CSE512 | A3 [Add: title]</title>
+  <style media="all">
+* { padding: 0; margin: 0; }
+ body {
+  margin: 0 auto 0 auto;
+  padding: 0;
+  //max-width: 2000px;
+  width: 2000px;
+  font-family: "Avenir", "Avenir Next", Helvetica Neue, Arial;
+  font-size: 0.95em;
+}
+ a, a:visited { text-decoration: none; color: #7533f4; }
+a:hover { text-decoration: underline; color: #f4b014; }
+ h1, h2, h3, h4, h5 {
+  color: #492a7c;
+  background-color: inherit;
+  font-weight: normal;
+  padding: 0 0 5px 0;
+  margin: 15px 0 0 0;
+  border: none;
+  clear: right;
+}
+h1 { font-size: 24pt; margin:  5px 0 10px 0; line-height: 28px; }
+h2 { font-size: 14pt; margin: 30px 0 15px 0; letter-spacing: 0.01em; border-bottom: 1px solid #ccc;  line-height: 20px;}
+h3 { font-size: 13pt; }
+h4 { font-size: 12pt; }
+h5 { font-size: 11pt; }
+p { margin: 0 0 10px 0; }
+ .content {
+  margin: 0;
+  padding: 15px 20px;
+  background-color: #ffffff;
+}
+ .title, .title h1, .title a {
+  color: #492a7c;
+  font-size: 24pt;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+ .footer {
+  border-top: 1px solid #ccc;
+  margin-top: 30px;
+  padding-top: 4px;
+  text-align: right;
+  font-size: 12px;
+}
+.footer a {
+  color: #21346B;
+}
+.footer a:hover {
+  color: #ce3333;
+}
+    
+.aaaaa{
+    margin: 0 auto 0 auto;
+    padding: 0;
+    width: 100%;
+    height: 800px;
+    position: relative;
+    }
+    
+div.sl{
+  position: absolute;
+  top: 400px;
+  left:0px;
+  width: 800px;
+  height: 500px;
+} 
+div.nn{
+  position:  absolute;
+  top: 200px;
+  left:50px;
+  width: 350px;
+  height: 200px;
+}
+div.ct {
+  position:  absolute;
+  top: 0px;
+  right: 0px;
+  width: 1050px;
+  height: 700px;
+}
+  </style>
+</head>
+<body>
+<div class="content">
+   <section class="title">
+    <a href="/">Visualizing neural network architecture</a>
+  </section>
+
+   <section>
+    <p>
+      <strong>Team Members</strong>: Zijian Li, Zhengde Zhao, Yue Zhao
+    </p>      
+  </section>
+  
+  
+    <section>
+    <h2>Abstract</h2>
+    <p>Insects like moths managed to do complex tasks like flying, even with astonishingly simple brains. 
+      In the experiment, the researchers built deep neural networks to learn the non-linear controller for the flight dynamics of a virtual moth. 
+      This interactive visualization system shows the activities in the neural network of the virtual moth, with customized input values and model.
+      Feel free to play with the system by choosing different input values!</p>
+    <p><a href="NNV.pdf">Poster</a>,<a href="paper/paper.pdf">Paper</a> </p>
+  </section> 
+  <!-- This web-based visualization system shows the activities in the neural network of a virtual moth.-->
+
+   <section class="aaaaa"> 
+ <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+
+ <script type="module">
+  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import notebook from "https://api.observablehq.com/@neuralviz/nora/10.js?v=3";
+const runtime = new Runtime();
+const main=runtime.module(notebook, name => {
+    if (name==="chart") {return new Inspector(document.getElementById('chart'))}
+    if (name==="viewof timeButtonsNaive") {return new Inspector(document.getElementById('slider'))}
+    if (name==="viewof model") {return new Inspector(document.getElementById('model'))}
+});       
+</script>
+
+<div id="slider" class="sl"></div>
+<div id="model" class="nn"></div>
+<div id="chart" class="ct"></div>
+
+    
+  </section>
+
+  
+
+  <h2>Building a Virtual Moth</h2>
+
+  <video controls="controls" width="400" height="300" 
+       name="Video Name" src="mothHover.mov"></video>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="Moth.png" alt="Trulli" width="1000" height="333">
+  
+  
+  <section>
+    <h2>Running Instructions</h2>
+   <!-- <em>[Add: running instructions for the software and other optional materials.]</em>
+  -->
+  <p>Choose a model size from the pull-down menu. For large and max size, it will take a while to process. </p>  
+  <p>Brush the axis to choose the number of edge being displayed based on the their weights.</p> 
+  <p>Change the input value to see how the neurons fire in the neural network.</p>
+  <p>Drag a node to reposition it.</p>
+  <p>Hover on a node or edge to see more information. </p>
+  </section>
+
+  <div class="footer">
+    <a href="https://courses.cs.washington.edu/courses/cse512/19sp/">CSE 512 Data Visualization</a>
+    <a href="http://www.washington.edu">University of Washington</a>
+  </div>
+ </div>
+</body>
+</html> 
