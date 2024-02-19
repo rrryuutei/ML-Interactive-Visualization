@@ -113,7 +113,7 @@ div.ct {
 
  <script type="module">
   import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import notebook from "https://api.observablehq.com/@neuralviz/nora/10.js?v=3";
+import notebook from "https://api.observablehq.com/@neuralviz/nora.js?v=3";
 const runtime = new Runtime();
 const main=runtime.module(notebook, name => {
     if (name==="chart") {return new Inspector(document.getElementById('chart'))}
