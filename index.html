@@ -1,11 +1,12 @@
-
-
 <!DOCTYPE HTML>
 <html xml:lang="en" lang="en">
 <head>
-  <title>CSE512 | A3 [Add: title]</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural Network Visualization </title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
   <style media="all">
-    /* reset */
+    /*  base styles */
     * { padding: 0; margin: 0; box-sizing: border-box; }
     body {
       margin: 20px auto;
@@ -17,33 +18,25 @@
       color: #333;
       background-color: #f4f4f4;
     }
-
-    /* link */
     a, a:visited { text-decoration: none; color: #007BFF; }
     a:hover { text-decoration: underline; color: #0056b3; }
-
-    /* title */
-    h1, h2, h3, h4, h5 {
-      margin: 20px 0 10px;
-      color: #333;
+    h1, h2, h3, h4, h5 { margin: 20px 0 10px; color: #333; }
+    h1 { 
+      font-size: 2em; 
+      color: #007BFF; 
     }
-    h1 { font-size: 2em; }
     h2 { font-size: 1.75em; }
     h3 { font-size: 1.5em; }
     h4 { font-size: 1.25em; }
     h5 { font-size: 1em; }
-
-    /* margin */
     p { margin-bottom: 10px; }
-
-    
     .content {
       background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      font-weight: normal; 
     }
-
     
     .footer {
       margin-top: 30px;
@@ -52,78 +45,72 @@
       font-size: 14px;
       color: #666;
     }
-    
-    /* flex*/
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      body {
-        width: auto;
-        margin: 10px;
-      }
-      .content, .footer {
-        padding: 15px;
-      }
+      body { width: auto; margin: 10px; }
+      .content, .footer { padding: 15px; }
     }
+    .section {
+      margin-bottom: 10px; /* This will add 20px of space below each <section> element */
+    }
+    
   </style>
 </head>
 <body>
   <div class="content">
-    <section class="title">
-     <a href="/">Visualizing neural network architecture</a>
-   </section>
+    <header>
+      <h1>Visualizing Neural Network Architecture</h1>
+    </header>    
  
     <section>
-     <p>
-       <strong>Team Members</strong>: Nora(Ting) Liu; Theodore Zhao
-     </p>      
-   </section>
+      <p><strong>Team Members:</strong> <a href="https://www.linkedin.com/in/tingliu319/?locale=en_US" target="_blank">Nora (Ting) Liu</a>; Theodore Zhao</a></p>
+    </section>
+    
    
-   
-     <section>
-     <h2>Abstract</h2>
-     <p>Insects like moths managed to do complex tasks like flying, even with astonishingly simple brains. 
-       In the experiment, the researchers built deep neural networks to learn the non-linear controller for the flight dynamics of a virtual moth. 
-       This interactive visualization system shows the activities in the neural network of the virtual moth, with customized input values and model.
-       Feel free to play with the system by choosing different input values!</p>
-   </section> 
-   <!-- This web-based visualization system shows the activities in the neural network of a virtual moth.-->
+    <section>
+     <h2>How is the Neural Network "Thinking"?</h2>
+     <p>We visualize the internal status of a neural network predicting weekly sales amount of Walmart from a set of input values. The nodes in the network are the "neurons", activated by the input values at the left most 5 nodes. The neural network "thinks" by computing the neuron activation propagated from left to right through the weighted links, with the predicted sales amount reflected by the right most neuron. <p>
+      
+      <p><strong>Hover your mouse on it to see the predicted value!<strong></p>
+    </section> 
  
-    <section class="aaaaa"> 
-  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+    <section>
+     <h2>Interactive Neural Network Visualization</h2>
+     <div id="slider" class="sl"></div>
+     <div id="model" class="nn"></div>
+     <div id="chart" class="ct"></div>
+    </section>
  
-  <script type="module">
-   import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
- import notebook from "https://api.observablehq.com/@neuralviz/nora.js?v=3";
- const runtime = new Runtime();
- const main=runtime.module(notebook, name => {
-     if (name==="chart") {return new Inspector(document.getElementById('chart'))}
-     if (name==="viewof timeButtonsNaive") {return new Inspector(document.getElementById('slider'))}
-     if (name==="viewof model") {return new Inspector(document.getElementById('model'))}
- });       
- </script>
- 
- <div id="slider" class="sl"></div>
- <div id="model" class="nn"></div>
- <div id="chart" class="ct"></div>
- 
- 
-   
- 
- 
-   <section>
-     <h2>Running Instructions</h2>
-    <!-- <em>[Add: running instructions for the software and other optional materials.]</em>
-   -->
-   <p>Choose a model size from the pull-down menu. For large and max size, it will take a while to process. </p>  
-   <p>Brush the axis to choose the number of edge being displayed based on the their weights.</p> 
-   <p>Change the input value to see how the neurons fire in the neural network.</p>
-   <p>Drag a node to reposition it.</p>
-   <p>Hover on a node or edge to see more information. </p>
-   </section>
- 
-   <div class="footer">
-   
+    <section>
+      <h2>How to Interact with the Neural Network?</h2>
+      <p>1. Tune the input values for Holiday, Temperature, Fuel Price, CPI, and Unemployment at the top.</p>  
+      <p>2. Observe how the neurons get activated differently (size change). The predicted sales value is the right most neuron!</p> 
+      <p>3. Hover your mouse on a neuron to see its current value.</p>
+      <p>4. Use the selection bar at the bottom to filter the links in the neural network by their weights. Note how sparse the neural network is!</p>
+      <p>5. If you like, drag a node to reposition it. We provided three models of different sizes. Feel free to choose from the drop-down menu!</p>
+      
+     </section>
+    
+     
+
+    <section>
+     <p>* The models were trained using data from <a href="https://www.kaggle.com/datasets/yasserh/walmart-dataset" target="_blank">Walmart Dataset on Kaggle</a>.</p>
+    </section>
+
+    <footer class="footer">
      <a href="https://www.northeastern.edu/">Northeastern University</a>
-   </div>
+    </footer>
   </div>
- </body>
- </html> 
+
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import notebook from "https://api.observablehq.com/@neuralviz/nora.js?v=3";
+    const runtime = new Runtime();
+    const main = runtime.module(notebook, name => {
+        if (name === "chart") { return new Inspector(document.getElementById('chart')); }
+        if (name === "viewof timeButtonsNaive") { return new Inspector(document.getElementById('slider')); }
+        if (name === "viewof model") { return new Inspector(document.getElementById('model')); }
+    });       
+  </script>
+</body>
+</html>
