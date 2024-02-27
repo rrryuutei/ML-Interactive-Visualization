@@ -1,18 +1,19 @@
+
 <!DOCTYPE HTML>
 <html xml:lang="en" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neural Network Visualization </title>
-  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+  <title>Neural Network Visualization 🧠</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style media="all">
-    /*  base styles */
+    /* Base styles */
     * { padding: 0; margin: 0; box-sizing: border-box; }
     body {
       margin: 20px auto;
       width: calc(100% - 40px);
       max-width: 1200px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 16px;
       line-height: 1.6;
       color: #333;
@@ -21,10 +22,7 @@
     a, a:visited { text-decoration: none; color: #007BFF; }
     a:hover { text-decoration: underline; color: #0056b3; }
     h1, h2, h3, h4, h5 { margin: 20px 0 10px; color: #333; }
-    h1 { 
-      font-size: 2em; 
-      color: #007BFF; 
-    }
+    h1 { font-size: 2em; color: #007BFF; }
     h2 { font-size: 1.75em; }
     h3 { font-size: 1.5em; }
     h4 { font-size: 1.25em; }
@@ -35,9 +33,7 @@
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      font-weight: normal; 
     }
-    
     .footer {
       margin-top: 30px;
       padding-top: 10px;
@@ -45,72 +41,67 @@
       font-size: 14px;
       color: #666;
     }
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       body { width: auto; margin: 10px; }
       .content, .footer { padding: 15px; }
     }
-    .section {
-      margin-bottom: 10px; /* This will add 20px of space below each <section> element */
-    }
-    
+    .section { margin-bottom: 20px; }
+    /* Added styles for improved layout and aesthetics */
+    .emoji { font-size: 24px; margin-right: 8px; }
   </style>
 </head>
 <body>
   <div class="content">
     <header>
-      <h1>Visualizing Neural Network Architecture</h1>
+      <h1><span class="emoji">🖥️</span>Visualizing Neural Network Architecture</h1>
     </header>    
- 
+    
     <section>
-      <p><strong>Team Members:</strong> <a href="https://www.linkedin.com/in/tingliu319/?locale=en_US" target="_blank">Nora (Ting) Liu</a>; Theodore Zhao</a></p>
+      <p><strong>Team Members:</strong> <a href="https://www.linkedin.com/in/tingliu319/?locale=en_US" target="_blank">Nora (Ting) Liu</a>; Theodore Zhao</a> 🤖</p>
     </section>
     
-   
     <section>
-     <h2>How is the Neural Network "Thinking"?</h2>
-     <p>We visualize the internal status of a neural network predicting weekly sales amount of Walmart from a set of input values. The nodes in the network are the "neurons", activated by the input values at the left most 5 nodes. The neural network "thinks" by computing the neuron activation propagated from left to right through the weighted links, with the predicted sales amount reflected by the right most neuron. <p>
+      <h2><span class="emoji">🤔</span>How is the Neural Network "Thinking"?</h2>
+      <p>We visualize the internal status of a neural network predicting weekly sales amount of Walmart from a set of input values. The nodes in the network are the "neurons", activated by the input values at the left most 5 nodes. The neural network "thinks" by computing the neuron activation propagated from left to right through the weighted links, with the predicted sales amount reflected by the right most neuron.</p>
       
-      <p><strong>Hover your mouse on it to see the predicted value!<strong></p>
+      <p><strong>Hover your mouse on it to see the predicted value!</strong> 🖱️</p>
     </section> 
  
     <section>
-     <h2>Interactive Neural Network Visualization</h2>
-     <div id="slider" class="sl"></div>
-     <div id="model" class="nn"></div>
-     <div id="chart" class="ct"></div>
+      <h2><span class="emoji">🖼️</span>Interactive Neural Network Visualization</h2>
+      <div id="slider" class="sl"></div>
+      <div id="model" class="nn"></div>
+      <div id="chart" class="ct"></div>
     </section>
  
     <section>
-      <h2>How to Interact with the Neural Network?</h2>
-      <p>1. Tune the input values for Holiday, Temperature, Fuel Price, CPI, and Unemployment at the top.</p>  
-      <p>2. Observe how the neurons get activated differently (size change). The predicted sales value is the right most neuron!</p> 
-      <p>3. Hover your mouse on a neuron to see its current value.</p>
-      <p>4. Use the selection bar at the bottom to filter the links in the neural network by their weights. Note how sparse the neural network is!</p>
-      <p>5. If you like, drag a node to reposition it. We provided three models of different sizes. Feel free to choose from the drop-down menu!</p>
-      
-     </section>
-    
-     
+      <h2><span class="emoji">⚙️</span>How to Interact with the Neural Network?</h2>
+      <p>1. Tune the input values for Holiday, Temperature, Fuel Price, CPI, and Unemployment at the top. 🎛️</p>  
+      <p>2. Observe how the neurons get activated differently (size change). The predicted sales value is the right most neuron! 🔍</p> 
+      <p>3. Hover your mouse on a neuron to see its current value. 🖱️</p>
+      <p>4. Use the selection bar at the bottom to filter the links in the neural network by their weights. Note how sparse the neural network is! 🔎</p>
+      <p>5. If you like, drag a node to reposition it. We provided three models of different sizes. Feel free to choose from the drop-down menu! 🔄</p>
+    </section>
 
     <section>
-     <p>** The models were trained using data from <a href="https://www.kaggle.com/datasets/yasserh/walmart-dataset" target="_blank">Walmart Dataset on Kaggle</a>.</p>
+      <p>** The models were trained using data from <a href="https://www.kaggle.com/datasets/yasserh/walmart-dataset" target="_blank">Walmart Dataset on Kaggle</a>. 📊</p>
     </section>
 
     <footer class="footer">
-     <a href="https://www.northeastern.edu/">Northeastern University</a>
+      <a href="https://www.northeastern.edu/">Northeastern University 🏫</a>
     </footer>
   </div>
 
   <script type="module">
-    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
     import notebook from "https://api.observablehq.com/@neuralviz/nora.js?v=3";
+
     const runtime = new Runtime();
     const main = runtime.module(notebook, name => {
         if (name === "chart") { return new Inspector(document.getElementById('chart')); }
         if (name === "viewof timeButtonsNaive") { return new Inspector(document.getElementById('slider')); }
         if (name === "viewof model") { return new Inspector(document.getElementById('model')); }
-    });       
+    });    
   </script>
 </body>
 </html>
